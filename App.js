@@ -2,15 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
+import SearchBar from './src/SearchBar';
+
 export default function App() {
-  const [input, setInput] = React.useState('Search Videos...')
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello World</Text>
-      <TextInput style={styles.textInput}
-      onChangeText={text => setInput(text)}
-      value={input}
-      />
+      <SearchBar />
       <StatusBar style="auto" />
     </View>
   );
@@ -19,9 +16,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'black',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   text: {
     color: 'white'
