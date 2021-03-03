@@ -10,12 +10,12 @@ const loginReducer = (state = initialState, action) => {
         case NEW_USER:
             return {
                 ...state,
-                userName: state.userName += action.data
+                userName: state.userName = action.data
             };
         case PASSWORD:
             return {
                 ...state,
-                password: state.password += action.data
+                password: state.password = action.data
             };
         default:
             return state;

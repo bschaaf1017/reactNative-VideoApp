@@ -7,9 +7,13 @@ import { newUser, password } from '../actions/login'
 
 export default function LoginForm() {
   const [user, setUser] = useState('');
-  const [pw, setPw] = useState('')
-  const name = useSelector(state => state.user);
-  // const pass = useSelector(state => state.pw);
+  const [pw, setPw] = useState('');
+  // const nuy = useSelector(state => state.login.userName);
+  const pass = useSelector(state => {
+
+    console.log(state)
+    return state.login
+  });
   const dispatch = useDispatch();
 
   const changeUN = (name) => dispatch(newUser(name))
@@ -17,7 +21,7 @@ export default function LoginForm() {
 
   return (
     <View style={styles.container}>
-      <Text>{`Username: ${name} \n pw: ${pw}`}</Text>
+      {/* <Text>{`Username: ${nuy} \n pw: ${pw}`}</Text> */}
       <TextInput style={styles.textInput}
         value={user}
         placeholder="Username"
@@ -32,15 +36,18 @@ export default function LoginForm() {
       <Text>{'\n'}</Text>
       <TouchableOpacity
         onPress={() => {
-          changeUN(user)
+          // changeUN(user)
           changePW(pw)
-          setPw('')
-          setUser('')
+          // setPw('')
+          // setUser('')
+          changeUN(user)
         }}
         >
         <Text>LOGIN </Text>
 
       </TouchableOpacity>
+      <Text>{pass.password}</Text>
+      <Text>{pass.userName} </Text>
     </View>
   )
 }
