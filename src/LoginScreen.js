@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 import LoginForm from './components/LoginForm';
 
-export default function App() {
+export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <LoginForm />

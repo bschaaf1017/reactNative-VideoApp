@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
 import configureStore from './src/store';
-import LoginScreen from './src/';
+import Home from './src/Home';
+import LoginScreen from './src/LoginScreen';
 
 const store = configureStore();
 const Stack = createStackNavigator();
@@ -17,10 +18,14 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen 
           name="Home" 
-          component={LoginScreen} 
+          component={Home} 
           options={{ title: 'superTV' }}
         />
-          {/* <LoginScreen /> */}
+        <Stack.Screen 
+          name="LoginScreen" 
+          component={LoginScreen} 
+          options={{ title: 'Login' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
         </Provider>
