@@ -1,17 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
 
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>superTV</Text>
+      <Text>
+
+      <Image source={require('./superTV.png')} style={styles.image} />
+      </Text>
       <TouchableOpacity 
         style={styles.button}
         raised={true}
         onPress={() => navigation.navigate('LoginScreen')}
       >
-        <Text>LOGIN </Text>
+        <Text style={styles.buttonText}>LOGIN </Text>
       </TouchableOpacity>
     </View>
   );
@@ -20,21 +23,26 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    color: 'white'
-  },
-  textInput: {
-    borderRadius: 4,
-    height: 40,
-    width: 150,
-    borderColor: 'black',
-    backgroundColor: 'white'
+  image: {
+    width: '100%',
+    height: '45%'
   },
   button: {
-    backgroundColor: "#DDDDDD",
+    elevation: 8,
+    backgroundColor: "#a9a9a9",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12
+  },
+  buttonText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
   }
 });
