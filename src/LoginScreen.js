@@ -1,16 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 import LoginForm from './components/LoginForm';
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-      <Image source={require('./superTV.png')} />
-      </Text>
-      <LoginForm nav={navigation}/>
+      <LoginForm />
       <StatusBar style="auto" />
     </View>
   );
@@ -19,9 +16,18 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'grey',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  text: {
+    color: 'white'
+  },
+  textInput: {
+    borderRadius: 4,
+    height: 40,
+    width: 150,
+    borderColor: 'black',
+    backgroundColor: 'white'
   }
 });
