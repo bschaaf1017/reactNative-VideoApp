@@ -11,4 +11,4 @@ web-build/
 
 # macOS
 .DS_Store
-API_KEY
+API_KEY.js

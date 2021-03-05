@@ -8,6 +8,7 @@ import apiKey from '../API_KEY'
 import LoginForm from './components/LoginForm';
 
 export default function LoginScreen() {
+    const greet = 'Hello'
     console.log(apiKey)
     const user = useSelector(state => {
         console.log(state)
@@ -16,6 +17,7 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <Text>
+      <Text style={styles.greet}>{greet}</Text>
       <Image source={require('./superTV.png')} style={styles.image} />
       </Text>
       <StatusBar style="auto" />
@@ -30,4 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },   
+  greet: {
+      color: 'white',
+  }
 });
