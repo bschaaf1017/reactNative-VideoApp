@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import configureStore from './src/store';
 import Home from './src/Home';
 import LoginScreen from './src/LoginScreen';
+import Videos from './src/Videos';
 
 const store = configureStore();
 const Stack = createStackNavigator();
@@ -25,6 +26,11 @@ export default function App() {
           name="LoginScreen" 
           component={LoginScreen} 
           options={{ title: 'Login' }}
+        />
+        <Stack.Screen
+          name="SearchVideos"
+          component={Videos}
+          options={{title: 'Search superTV'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

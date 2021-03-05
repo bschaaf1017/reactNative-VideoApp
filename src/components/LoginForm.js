@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { newUser, password } from '../actions/login'
 
 
-export default function LoginForm() {
+export default function LoginForm(props) {
   const [user, setUser] = useState('');
   const [pw, setPw] = useState('');
   const pass = useSelector(state => {
@@ -19,13 +19,16 @@ export default function LoginForm() {
   return (
     <View style={styles.container}>
       <TextInput style={styles.textInput}
-        value={user}
+        // defaultValue={user}
+        autoFocus={true}
+        clearButtonMode="always"
         placeholder="Username"
         onChangeText={text => setUser(text)}
       />
       <Text>{'\n'}</Text>
       <TextInput style={styles.textInput}
-        value={pw}
+        // defaultValue={pw}
+        clearButtonMode="always"
         placeholder="Password"
         onChangeText={text => setPw(text)}
       />
@@ -36,14 +39,13 @@ export default function LoginForm() {
           changeUN(user)
           setUser('')
           setPw('')
+          props.nav.navigate('SearchVideos')
         }}
+        style={styles.button}
         >
-        <Text>LOGIN </Text>
-
+        <Text style={styles.buttonText}>LOGIN </Text>
       </TouchableOpacity>
-      <Text>{pass.password}</Text>
-      <Text>{pass.userName} </Text>
-    </View>
+      </View>
   )
 }
 
@@ -51,9 +53,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // paddingTop: 25,
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
+        // // flexDirection: "column",
+        // justifyContent: "center",
+        // alignItems: "center"
     },
     textInput: {
         borderRadius: 4,
@@ -62,5 +64,19 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         backgroundColor: 'white',
         paddingLeft: 10
+    },
+    button: {
+      elevation: 8,
+      backgroundColor: "#a9a9a9",
+      borderRadius: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 12
+    },
+    buttonText: {
+      fontSize: 18,
+      color: "#fff",
+      fontWeight: "bold",
+      alignSelf: "center",
+      textTransform: "uppercase"
     }
 })

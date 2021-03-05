@@ -1,16 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import {newSearch} from './actions/login'
+import apiKey from '../API_KEY'
 
 import LoginForm from './components/LoginForm';
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
+    console.log(apiKey)
+    const user = useSelector(state => {
+        console.log(state)
+        return state.login
+      });
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-      <Image source={require('./superTV.png')} />
+      <Text>
+      <Image source={require('./superTV.png')} style={styles.image} />
       </Text>
-      <LoginForm nav={navigation}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -20,8 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
-    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-  }
+    justifyContent: 'flex-start',
+  },   
 });
