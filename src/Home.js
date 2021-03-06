@@ -14,7 +14,7 @@ export default function Home({ navigation }) {
         raised={true}
         onPress={() => navigation.navigate('LoginScreen')}
       >
-        <Text style={styles.buttonText}>LOGIN </Text>
+      <Text style={styles.buttonText}>LOGIN </Text>
       </TouchableOpacity>
     </View>
   );
@@ -26,10 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  image: {
-    width: '100%',
-    height: '45%'
   },
   button: {
     elevation: 8,
