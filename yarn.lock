@@ -4056,7 +4056,7 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-isomorphic-fetch@^2.1.1:
+isomorphic-fetch@^2.1.1, isomorphic-fetch@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
   integrity sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
@@ -5193,6 +5193,13 @@ path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+
+pexels@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/pexels/-/pexels-1.0.1.tgz#ae7495c862a9ef6398656c4c94ce1871b58281e2"
+  integrity sha512-FAza/rvMBiwDUU5l9g42y54BX886w4/ca5dTo5kTxeY+XSzVD7UvWNVy1Im/I047V7+/SGbscbCSWvE69Sadtg==
+  dependencies:
+    isomorphic-fetch "^2.2.1"
 
 phin@^2.9.1:
   version "2.9.3"

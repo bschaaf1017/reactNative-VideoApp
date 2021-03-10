@@ -1,28 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState }  from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, Button } from 'react-native';
-import WebView from 'react-native-webview';
+import { createClient } from 'pexels';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import {newSearch} from './actions/login'
 import apiKey from '../API_KEY'
 
-import LoginForm from './components/LoginForm';
+
+const searchPexels = (query) => {
+  //pexels API
+  const client = createClient(apiKey.keys.API_KEY_PEXELS);
+  return client.videos.search({query, per_page: 1})
+    .then(videos => {
+      console.log(videos)
+    })
+}
 
 export default function LoginScreen() {
     const greet = 'Hello';
     const video = React.useRef(null);
     const [status, setStatus] = useState({});
     const [qParam, setQparam] = useState('');
-    console.log(apiKey)
+    const [pexVideo, setPexVideo] = useState('');
     const user = useSelector(state => {
-        console.log(state)
-        return state
+        return state;
     });
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const search = (query) => dispatch(newSearch(query));
+    // const search = (query) => dispatch(newSearch(query));
   return (
     <View style={styles.container}>
       <Text style={styles.image} >
@@ -39,8 +45,10 @@ export default function LoginScreen() {
         style={styles.button}
         raised={true}
         onPress={() => {
-          search(qParam)
-          // props.nav.navigate('SearchVideos')
+          return searchPexels(qParam)
+            // .then(resp => {
+            //   console.log(resp)
+            // })
         }}
         >
         <Text style={styles.buttonText}>SEARCH </Text>
@@ -49,7 +57,7 @@ export default function LoginScreen() {
         ref={video}
         style={styles.video}
         source={{
-          uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri: 'https://player.vimeo.com/external/466319520.hd.mp4?s=06e9d3dc415e4089bd04d613b28cb216b2974de0&profile_id=170&oauth2_token_id=57447761',
         }}
         useNativeControls
         resizeMode="contain"
